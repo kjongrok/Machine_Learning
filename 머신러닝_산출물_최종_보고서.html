@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI개발 수행내역서</title>
+<style>
+    body { font-family: 'Malgun Gothic', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px; }
+    h1.main-title { text-align: center; font-size: 24px; margin-bottom: 5px; }
+    h1.sub-title { text-align: center; font-size: 36px; margin-bottom: 50px; }
+    h1.section-title { color: #c0392b; font-size: 28px; border-bottom: 3px solid #c0392b; padding-bottom: 10px; margin-top: 50px; }
+    h2 { font-size: 22px; margin-top: 30px; color: #2c3e50; }
+    h3 { font-size: 18px; margin-top: 25px; color: #2980b9; }
+    h4 { font-size: 16px; margin-top: 20px; color: #34495e; }
+    p { margin-bottom: 15px; text-align: justify; word-break: keep-all; }
+    table.cover-table { width: 70%; margin: 0 auto; margin-top: 50px; font-size: 18px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
+    th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+    th { background-color: #f2f2f2; font-weight: bold; }
+    .code-block { background-color: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; font-family: 'Consolas', monospace; font-size: 13px; overflow-x: auto; margin-bottom: 20px; }
+    .page-break { page-break-before: always; }
+    .img-container { text-align: center; margin: 30px 0; }
+    .img-container img { max-width: 90%; border: 1px solid #ddd; box-shadow: 2px 2px 8px rgba(0,0,0,0.1); }
+    .caption { font-size: 13px; color: #666; margin-top: 10px; font-weight: bold; }
+    .flex-container { display: flex; justify-content: space-between; gap: 20px; }
+    .flex-item { flex: 1; text-align: center; }
+</style>
+</head>
+<body>
+
+    <h1 class="main-title">2024년도 공공기관 용역과제</h1>
+    <h1 class="sub-title">AI개발 수행내역서</h1>
+    
+    <table class="cover-table">
+        <tr>
+            <th style="width: 30%; text-align: center;">과제명</th>
+            <td>AI기반 항공편 지연 예측모델 개발 및 시각화</td>
+        </tr>
+        <tr>
+            <th style="text-align: center;">담당자</th>
+            <td>김종록</td>
+        </tr>
+        <tr>
+            <th style="text-align: center;">작성일</th>
+            <td>2025년 3월 13일</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h1 class="section-title">AI개발 수행내용</h1>
+
+    <h2>1. 사업과제 : OO공단 AI기반 항공편 예측모델 개발 및 시각화</h2>
+    <h2>2. 개요 및 현황</h2>
+
+    <h3>2.1 추진배경 및 목적</h3>
+    <p>○ 장기간 축적된 항공 운항 데이터베이스를 기반으로 하여 인공지능 기반의 지연 예측모델에 대한 수요가 점진적 증대 예상</p>
+    <p>○ 기상 이변 및 공항 인프라 한계로 인한 항공편 지연 및 재해 발생가능성이 높아짐에 따라 체계적이고 정확한 예측이 중요해지고 있는 상황</p>
+    <p>○ 항공 운항 데이터를 분석하고 복잡한 패턴을 학습함으로써, 항공편 지연에 미치는 영향을 보다 정밀하게 예측하고자 함</p>
+    <p>○ 항공편 대상을 시범적 모델로 구축하여 향후 기상 데이터 연동, 노선 배정 등의 다른 업무로 확대하고자 함</p>
+
+    <h3>2.2 과제 범위</h3>
+    <table>
+        <tr><th style="width: 20%; text-align: center;">과제구분</th><th style="text-align: center;">내용</th></tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">AI</td>
+            <td>
+                - AI기반 항공편 예측모델 구현<br>
+                - 원시 데이터 수집 및 데이터셋 구축<br>
+                - 데이터 전처리, 표준화, 상관관계 분석 (EDA도구 활용)<br>
+                - 예측모델 선정 및 학습<br>
+                - Recall, F1-Score 등 평가지표를 활용한 모델 성능 평가<br>
+                - 예측모델 웹기반 시스템(파이프라인) 구축<br>
+                - 테스트
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">시각화</td>
+            <td>
+                - 실시간 비행계측정보 연계 및 시각화<br>
+                - 사용자 입력 실시간 연계 모형 구현<br>
+                - 상황관리 대시보드 등 시각화 구현 (Streamlit 시각화 도구 활용)<br>
+                - 예측모델 시각화 (Feature Importance 변수 연동)<br>
+                - 테스트<br>
+                - 통합테스트 및 시운전
+            </td>
+        </tr>
+    </table>
+
+    <h3>2.3 과제 추진 방법</h3>
+    <h4>1) 구축 대상 선정 기준</h4>
+    <p>○ <b>데이터 접근성 및 활용성</b><br>
+    ◼ 데이터 수집 및 관리의 용이성<br>
+    ◼ 데이콘(DACON) 등에서 이미 검증/구축된 데이터베이스 활용 여부<br>
+    ◼ 종속변수(지연 여부)에 영향을 미치는 다양한 독립변수(시간, 거리, 항공사 등)에 대한 정보 포함여부를 통한 모델학습의 유용성</p>
+
+    <p>○ <b>예측모델 개발 효율성</b><br>
+    ◼ 모델 학습 및 평가 과정 간소화를 위한 다른 기초데이터에 비해 변수가 상대적으로 단순/명확한 구조 여부<br>
+    ◼ 개발된 모델을 통해 다른 노선 데이터에 적용가능 여부</p>
+
+    <p>○ <b>문제 해결 기여도 및 경제성</b><br>
+    ◼ 예측모델을 통해 공항관리에 상대적 기여도가 높은 지 여부(ex. 지연 저감, 고객 불만 감소 등)<br>
+    ◼ 운영 효율성을 높여 비용절감 효과 여부<br>
+    ◼ 항공 지연문제 선제적 대처를 통한 사회적 비용감소 효과 여부</p>
+
+    <h4>2) AI 예측 분석모델 적용 대상</h4>
+    <table>
+        <tr><th>항공관리기능</th><th>수집 데이터</th><th>예측모델인자(독립변수)</th><th>AI예측 분석 대상</th></tr>
+        <tr>
+            <td>- 운항 일정 관리<br>- 탑승객 대응</td>
+            <td>- 항공편 운항 운영 데이터<br>- 시간, 거리, 항공사, 공항 핵심 변수가 포함된 데이터셋</td>
+            <td>- 수치변수 : Month(월), Hour(시간), Distance(비행거리)<br>- 범주변수 : Airline(항공사), Origin/Dest Airport(출발/도착공항)</td>
+            <td>- 항공편 지연 여부(Delay) 예측<br>- 시간, 거리, 공항 간 상관관계 분석<br>- 모델의 지연 핵심 원인 분석</td>
+        </tr>
+    </table>
+
+    <h4>3) AI 분석모델 구축 프로세스</h4>
+    <p>
+    <b>[DATA IMPORTING]</b><br>
+    - 운항 원시데이터 수집 및 임포팅<br>
+    - Month, Hour, Distance, Airline 등 핵심변수 포함<br><br>
+    <b>[데이터 전처리]</b><br>
+    - 변수별 상관관계 분석<br>
+    - 데이터 표준화 및 전처리(결측치 대체, 범주형 인코딩)<br>
+    - 불균형 데이터를 고려하여 학습, 테스트 데이터 분리<br><br>
+    <b>[모델링]</b><br>
+    - 모델 비교 및 최적 모델 도출(ex. XGBoost)<br>
+    - 모델 정의 및 학습 (scale_pos_weight 가중치 튜닝을 통한 Recall 향상)<br><br>
+    <b>[예측 / USER INSIGHT]</b><br>
+    - 예측값 계산 및 지연 확률 도출<br>
+    - 대시보드를 통한 지연 원인 시각화 및 직관적 사용자 인사이트 제공
+    </p>
+
+    <div class="page-break"></div>
+
+    <h1 class="section-title">연구개발 주요 결과물</h1>
+
+    <h2>1. 데이터 수집</h2>
+    <p>- 항공편 지연 데이터(CSV) : 전체 100만 건 데이터 중 정답셋 25만 건 활용</p>
+
+    <h2>2. 데이터 분석</h2>
+    <h3>2.1 수질데이터(항공데이터) 상관관계(Heatmap)</h3>
+    <p>○ EDA 히트맵 변수별 분포를 통해 변수 간 관계를 유추<br>
+    ○ 예측 모델링을 위한 대상 설정 : 지연 여부(Delay)<br>
+    ○ 지연 확률에 영향을 미치는 요인 분석 (수치형 변수 기준)</p>
+    <div class="img-container">
+        <img src="heatmap.png" alt="상관관계 히트맵">
+        <div class="caption">[결과 도출] 단순 수치형 변수(시간, 거리) 간의 선형적 상관관계는 0에 가까울 정도로 매우 약하게 나타나며, 범주형 변수가 혼합된 복합적 패턴 학습이 필수적임.</div>
+    </div>
+
+    <h3>2.2 탐색적 데이터 분석</h3>
+    <p>○ 결측치 및 중복값 통계</p>
+    <p>- 원시 데이터 100만 건 중 Target 변수(Delay) 결측치가 존재하는 행을 삭제하여 완전한 Labeled Dataset 추출 완료.<br>
+    - 출발 예정 시간 변수의 결측치는 전체의 중앙값(12:00) 대체를 통해 데이터 손실을 방지함.</p>
+
+    <p>○ 주요 변수별 데이터 분포(Histogram)</p>
+    <div class="img-container">
+        <img src="histogram.png" alt="데이터 분포 히스토그램">
+        <div class="caption">[결과 도출] 출발 시간대(Hour)는 아침 6시~8시 구간에 피크를 보이며, 비행 거리(Distance)는 500마일 전후의 단거리 노선이 압도적으로 많음을 확인.</div>
+    </div>
+
+    <p>○ 데이터 전처리</p>
+    <p>- 수치형 변수(Month, Hour, Distance)는 StandardScaler를 통해 단위 스케일 차이를 제거.<br>
+    - 범주형 변수(Airline, Origin/Dest Airport)는 OneHotEncoder를 통해 이진화 벡터 변환 적용.</p>
+
+    <div class="page-break"></div>
+
+    <h1 class="section-title">데이터 학습 및 모델정의</h1>
+
+    <h3>3.1 모델정의 및 컴파일</h3>
+    <p>○ 트리 앙상블 모델 정의 : XGBoost (XGBClassifier)</p>
+    <p>○ 모델 컴파일 및 세팅</p>
+    <div class="code-block">
+xgb_model = XGBClassifier(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;random_state=42,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;use_label_encoder=False,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;eval_metric='logloss',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tree_method='hist',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale_pos_weight=5  <span style="color:#75715e;"># 지연 데이터를 잡아내기 위한 가중치(페널티) 부여 (불균형 극복)</span><br>
+)
+    </div>
+
+    <h3>3.2 모델학습 및 학습 시각화</h3>
+    <p>○ 모델 학습</p>
+    <p>지연 데이터가 극소수인 불균형 데이터 문제로 인해, 기본 파라미터로 학습 시 모델 정확도(Accuracy)는 높으나 실제 지연을 전혀 잡아내지 못하는 문제(Accuracy Paradox)가 발생하였다. 이를 <code>scale_pos_weight</code> 가중치 튜닝을 통해 극복하였다.</p>
+    
+    <p>○ 학습과정 시각화 (튜닝 전후 혼동행렬 비교)</p>
+    <div class="flex-container">
+        <div class="flex-item">
+            <div class="img-container">
+                <img src="cm_before.png" alt="튜닝 전 오차 행렬">
+                <div class="caption">[예측 결과 비교 AA] 튜닝 전: 지연 데이터의 단 5%만 감지 (Recall 0.05)</div>
+            </div>
+        </div>
+        <div class="flex-item">
+            <div class="img-container">
+                <img src="cm_after.png" alt="튜닝 후 오차 행렬">
+                <div class="caption">[예측 결과 비교 BB] 튜닝 후: 가중치 튜닝을 통해 실제 지연 데이터 65% 감지 (Recall 0.65 달성)</div>
+            </div>
+        </div>
+    </div>
+
+    <h3>3.3 모델 예측</h3>
+    <p>○ 예측값 vs 실제값 영향도 분석 (Feature Importance)</p>
+    <div class="img-container">
+        <img src="feature_importance.png" alt="피처 중요도">
+        <div class="caption">[결과 도출] 예측에 가장 큰 영향을 미치는 핵심 변수 중요도를 분석한 결과, 단순 시간이나 거리가 아닌 특정 항공사(Airline) 및 특정 공항 인프라가 지연을 결정짓는 핵심 지표로 나타남.</div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h1 class="section-title">프로토타이핑(화면)</h1>
+
+    <h3>4.1 모델 예측</h3>
+    <p>○ 모델 예측 웹 시스템 구축</p>
+    <p>- 좌측 사이드바를 통해 사용자(운영자)가 실시간으로 출발 공항, 도착 공항, 항공사, 비행 월, 출발 예정 시간, 거리를 조작할 수 있는 Dashboard 구축 완료.<br>
+    - 입력된 조건은 백그라운드의 저장된 XGBoost 모델 파이프라인(pkl)으로 전송되어 즉각적인 연산을 수행함.</p>
+
+    <p>○ 지연 예측 결과 및 원인 시각화</p>
+    <p>- 예측 결과 내용 AA : 인공지능이 도출한 '지연 및 결항 확률' 퍼센티지(%) 지표 제공 및 직관적 알림창(위험/주의/정상) 표출.<br>
+    - 예측 결과 내용 BB : 단순히 결과만 제공하지 않고, 하단의 <code>Seaborn</code> 차트를 통해 '왜 이런 예측이 나왔는지'에 대한 분석 근거(해당 비행 조건에서 지연 확률에 가장 크게 기여한 변수 상위 5개)를 대시보드 화면에 실시간으로 시각화함.</p>
+
+</body>
+</html>
