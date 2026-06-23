@@ -5,8 +5,17 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 폰트 설정 (웹앱 그래프 한글 깨짐 방지)
-plt.rcParams['font.family'] = 'Malgun Gothic'
+# 폰트 설정 (웹앱 그래프 한글 깨짐 방지 - 로컬 및 클라우드 호환)
+import platform
+if platform.system() == 'Windows':
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+else:
+    # Streamlit Cloud (Linux) 환경용 폰트
+    import os
+    import matplotlib.font_manager as fm
+    os.system('rm -rf ~/.cache/matplotlib') # 폰트 캐시 삭제
+    plt.rcParams['font.family'] = 'NanumGothic'
+
 plt.rcParams['axes.unicode_minus'] = False
 
 # layout='wide' 로 변경하여 우측 결과를 더 시원하게 볼 수 있도록 세팅
